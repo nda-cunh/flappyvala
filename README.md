@@ -7,7 +7,9 @@ un petit flappy bird en vala avec ma lib Burger
 # Installation
 
 `meson build --prefix=/usr`
+
 `ninja -C build`
+
 `ninja install -C build` // en root
 
 # Dependencies
