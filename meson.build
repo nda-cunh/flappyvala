@@ -1,4 +1,4 @@
-project('boule-vala', 'c', 'vala',
+project('flappy-vala', 'c', 'vala',
   version : '0.1',
   default_options : ['warning_level=1'])
 add_project_arguments(['--pkg', 'posix'], language: 'vala')
