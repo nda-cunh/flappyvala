@@ -2,13 +2,13 @@ class Background{
     public Background () {
         this.init_object();
         
-        if(m_texture_grass.set_texture("/home/hydral/Desktop/flappyvala/data/grass.bmp")){
+        if(m_texture_grass.set_texture(IMAGE_DIR + "grass.bmp")){
             m_texture_grass.set_texture("data/grass.bmp");
         }
-        if(m_texture_background.set_texture("/home/hydral/Desktop/flappyvala/data/back.bmp")){
+        if(m_texture_background.set_texture(IMAGE_DIR + "back.bmp")){
             m_texture_background.set_texture("data/back.bmp");
         }
-        if(m_texture_building.set_texture("/home/hydral/Desktop/flappyvala/data/building.bmp")){
+        if(m_texture_building.set_texture(IMAGE_DIR + "building.bmp")){
             m_texture_building.set_texture("data/building.bmp");
         }
         

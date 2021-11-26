@@ -5,13 +5,13 @@ class Scene{
         m_s_gameover.move({45,100});
         m_s_title.move({50,100});
         m_s_retry.move({135,240});
-        if(m_t_title.set_texture("/home/hydral/Desktop/flappyvala/data/titre.bmp")){
+        if(m_t_title.set_texture(IMAGE_DIR + "titre.bmp")){
            m_t_title.set_texture("data/titre.bmp");
         }
-        if(m_t_gameover.set_texture("/home/hydral/Desktop/flappyvala/data/gameover.bmp")){
+        if(m_t_gameover.set_texture(IMAGE_DIR + "gameover.bmp")){
             m_t_gameover.set_texture("data/gameover.bmp");
         }
-        if(m_t_retry.set_texture("/home/hydral/Desktop/flappyvala/data/retry.bmp")){
+        if(m_t_retry.set_texture(IMAGE_DIR + "retry.bmp")){
             m_t_retry.set_texture("data/retry.bmp");
         }
         

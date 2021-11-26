@@ -2,13 +2,13 @@ class Personnage : Object {
     public Personnage () {
         this.init_object();
         
-        if(m_t[0].set_texture("/home/hydral/Desktop/flappyvala/data/flappy1.bmp")){
+        if(m_t[0].set_texture(IMAGE_DIR + "flappy1.bmp")){
             m_t[0].set_texture("data/flappy1.bmp");
         }
-        if(m_t[1].set_texture("/home/hydral/Desktop/flappyvala/data/flappy2.bmp")){
+        if(m_t[1].set_texture(IMAGE_DIR + "flappy2.bmp")){
             m_t[1].set_texture("data/flappy2.bmp");
         }
-        if(m_t[2].set_texture("/home/hydral/Desktop/flappyvala/data/flappy3.bmp")){
+        if(m_t[2].set_texture(IMAGE_DIR + "flappy3.bmp")){
             m_t[2].set_texture("data/flappy3.bmp");
         }
         this.init();

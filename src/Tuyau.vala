@@ -10,10 +10,10 @@ class Tuyau{
         
         
         
-        if(m_texture_tuyauC.set_texture("/home/hydral/Desktop/flappyvala/data/tuyauC.bmp")){
+        if(m_texture_tuyauC.set_texture(IMAGE_DIR + "tuyauC.bmp")){
             m_texture_tuyauC.set_texture("data/tuyauC.bmp");
         }
-        if(m_texture_tuyau.set_texture("/home/hydral/Desktop/flappyvala/data/tuyau.bmp")){
+        if(m_texture_tuyau.set_texture(IMAGE_DIR + "tuyau.bmp")){
             m_texture_tuyau.set_texture("data/tuyau.bmp");
         }
         this.tuyau_init();
