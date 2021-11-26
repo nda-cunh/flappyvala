@@ -58,7 +58,7 @@ class Personnage : Object {
         m_sprite.move({0,m_vitesse});
         if(SDL.Timer.get_ticks() >= diff_gravity + 55)
         {
-            if(m_vitesse != 8)
+            if(m_vitesse != 12)
                 m_vitesse = m_vitesse + 1;
             diff_gravity = SDL.Timer.get_ticks();
             m_sprite.set_angle(m_vitesse*9 -20);
