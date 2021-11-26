@@ -11,6 +11,8 @@ Image_bmp = [
 	'flappy3.bmp',
 	'building.bmp'
 ]
+install_data(Image_bmp, install_dir : get_option('datadir') / 'flappy')
+
 install_data('Flappy-vala.desktop', install_dir : get_option('datadir') / 'applications/')
 
 install_data('flappy-icon.png', install_dir : get_option('datadir') / 'icons')
