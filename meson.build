@@ -34,7 +34,7 @@ list_vala_dep = [
 ]
 
 subdir('src')
-
+subdir('data')
 source = join_paths(meson.source_root(), 'image')
 dest = join_paths(meson.build_root(), 'image')
 r = run_command('cp','-rf', source, dest)
