@@ -1,3 +1,4 @@
+using Bg;
 class Scene{
     public Scene () {
         this.init_object();
@@ -5,6 +6,7 @@ class Scene{
         m_s_gameover.move({45,100});
         m_s_title.move({50,100});
         m_s_retry.move({135,240});
+        print("hello\n");
         if(m_t_title.set_texture(IMAGE_DIR + "titre.bmp")){
            m_t_title.set_texture("data/titre.bmp");
         }
@@ -17,22 +19,27 @@ class Scene{
         
     }
     private void init_object(){
+
         m_win = new Window("flappy bird", 450, 650);
+        print("background\n");
         m_background = new Background();
+        print("personnage\n");
         m_perso = new Personnage();
+        print("fin de personnage\n");
         m_t_title = new Texture();
         m_t_gameover = new Texture();
         m_t_retry = new Texture();
-        
         m_s_title = new Sprite(m_t_title);
         m_s_gameover = new Sprite(m_t_gameover);
         m_s_retry = new Sprite(m_t_retry);
     }
     public void run(){
+        print("hello\n");
         while(m_win.is_open())
         {
             this.event();
             m_win.clear();
+            print("hello\n");
             this.drawing();
             m_win.present();
         }
@@ -55,8 +62,14 @@ class Scene{
             
             
         }
-        if(activity == Activity.PAUSE)
+        if(activity == Activity.PAUSE){
+            m_s_title.set_rect({0,0,25,10});
+
+
+
+
             m_win.draw(m_s_title);
+        }
         if(activity == Activity.GAME)
             m_background.add_tuyau();
         if(activity == Activity.OVER)

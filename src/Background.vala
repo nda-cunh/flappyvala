@@ -1,16 +1,10 @@
+using Bg;
+
 class Background{
     public Background () {
         this.init_object();
         
-        if(m_texture_grass.set_texture(IMAGE_DIR + "grass.bmp")){
-            m_texture_grass.set_texture("data/grass.bmp");
-        }
-        if(m_texture_background.set_texture(IMAGE_DIR + "back.bmp")){
-            m_texture_background.set_texture("data/back.bmp");
-        }
-        if(m_texture_building.set_texture(IMAGE_DIR + "building.bmp")){
-            m_texture_building.set_texture("data/building.bmp");
-        }
+
         
         
         for(int i = 0; i != 6; i++){
@@ -26,10 +20,23 @@ class Background{
         m_texture_background = new Texture();
         m_texture_building = new Texture();
         
+        if(m_texture_grass.set_texture(IMAGE_DIR + "grass.bmp")){
+            m_texture_grass.set_texture("data/grass.bmp");
+        }
+        if(m_texture_background.set_texture(IMAGE_DIR + "back.bmp")){
+            m_texture_background.set_texture("data/back.bmp");
+        }
+        if(m_texture_building.set_texture(IMAGE_DIR + "building.bmp")){
+            m_texture_building.set_texture("data/building.bmp");
+        }
+
+        print("here\n");
         m_sprite_background = new Sprite(m_texture_background);
+        print("here2\n");
         for(int i = 0; i != 6; i++){
             m_sprite_grass[i] = new Sprite(m_texture_grass);
         }
+        print("here\n");
         for(int i = 0; i != 6; i++){
             m_sprite_building[i] = new Sprite(m_texture_building);
         }

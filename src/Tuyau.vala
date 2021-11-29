@@ -1,3 +1,4 @@
+using Bg;
 class Tuyau{
     public Tuyau () {
         m_texture_tuyau = new Texture();
@@ -60,13 +61,13 @@ class Tuyau{
         {
             return true;
         }
-        if(perso.collision_sprite(m_sprite_tuyau1))
+        if(perso.collision_rect(m_sprite_tuyau1))
             return true;
-        if(perso.collision_sprite(m_sprite_tuyau2))
+        if(perso.collision_rect(m_sprite_tuyau2))
             return true;
-        if(perso.collision_sprite(m_sprite_chapeau1))
+        if(perso.collision_rect(m_sprite_chapeau1))
             return true;
-        if(perso.collision_sprite(m_sprite_chapeau2))
+        if(perso.collision_rect(m_sprite_chapeau2))
             return true;
         return false;
     }

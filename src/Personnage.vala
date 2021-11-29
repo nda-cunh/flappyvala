@@ -1,3 +1,4 @@
+using Bg;
 class Personnage : Object {
     public Personnage () {
         this.init_object();
@@ -18,6 +19,8 @@ class Personnage : Object {
         m_t[0] = new Texture();
         m_t[1] = new Texture();
         m_t[2] = new Texture();
+        a_gravity = new Bg.Animate(55);
+        a_sprite = new Animate(250);
         m_sprite = new Sprite(m_t[0]);
     }
     public void init(){
@@ -43,24 +46,22 @@ class Personnage : Object {
             gravity();
         if(is_dead == true)
             return;
-        if(SDL.Timer.get_ticks() >= diff + 250)
+        if(a_sprite.animate())
         {
             n_texture++;
             if(n_texture == 3)
                 n_texture = 0;
             m_sprite.set_texture(m_t[n_texture]);
-            diff = SDL.Timer.get_ticks();
         }
     }
     protected void gravity(){
         if(m_sprite.get_position().y >= 510)
                 return;
         m_sprite.move({0,m_vitesse});
-        if(SDL.Timer.get_ticks() >= diff_gravity + 55)
+        if(a_gravity.animate())
         {
             if(m_vitesse != 12)
                 m_vitesse = m_vitesse + 1;
-            diff_gravity = SDL.Timer.get_ticks();
             m_sprite.set_angle(m_vitesse*9 -20);
         }
         
@@ -72,8 +73,8 @@ class Personnage : Object {
         is_dead = true;
     }
     private int m_vitesse = 0;
-    private uint32 diff_gravity = 0;
-    private uint32 diff = 0;
+    private Animate a_gravity;
+    private Animate a_sprite;
     private int n_texture;
     private Texture m_t[3];
     private Sprite m_sprite;
