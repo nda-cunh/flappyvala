@@ -18,7 +18,6 @@ namespace Bg{
 			        return true;
 	        }
 	        if(m_whats_is == SPRITE || m_whats_is == RECTANGLE){
-		        Texture text_tmp = this.get_surface();
 		        int width = m_rect.w;
 		        int height = m_rect.h;
 			    
@@ -93,8 +92,10 @@ namespace Bg{
 			return m_texture;
 		}
 		public void set_render(SDL.Video.Renderer render){
-			m_texture_sdl = SDL.Video.Texture.create_from_surface (render, m_texture.get_image());
+		    if(m_texture_sdl == null)
+			    m_texture_sdl = SDL.Video.Texture.create_from_surface (render, m_texture.get_image());
 		}
+
 		public Color get_color(){
 			return m_color;
 		}

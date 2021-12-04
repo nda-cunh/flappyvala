@@ -42,11 +42,9 @@ namespace Bg{
 				drawer.set_render(m_render);
 				Texture text_tmp = drawer.get_surface();
 				Rect rect = drawer.get_rect();
-				Vector2i pos = {};
-				pos.x = (int) drawer.get_position().x;
-				pos.y = (int) drawer.get_position().y;
-				if(rect.w >= 0){
-				    drawer.set_rect({rect.x, rect.y, text_tmp.get_W(), text_tmp.get_H()});
+				Vector2i pos = {(int) drawer.get_position().x, (int) drawer.get_position().y};
+				if(rect.w == -1){
+				    drawer.set_rect({0, 0, text_tmp.get_W(), text_tmp.get_H()});
 				    rect = drawer.get_rect();
 				}
 				m_render.copyex(drawer.get_texture(), {rect.x, rect.y, rect.w, rect.h}, {pos.x, pos.y, rect.w * drawer.get_scale().x ,rect.h * drawer.get_scale().y}, drawer.get_angle(), {text_tmp.get_W()/2,text_tmp.get_H()/2}, SDL.Video.RendererFlip.NONE);
@@ -56,7 +54,6 @@ namespace Bg{
 		}
 
 		protected void fps_loop(){
-
 			uint32 time_dif,slp;
 
 			slp = 1000/m_fps_limit;
@@ -70,7 +67,7 @@ namespace Bg{
 			time_begin = SDL.Timer.get_ticks();
 		}
 		public void set_framelimit(uint fps){
-			m_fps_limit = (uint32)fps;
+			m_fps_limit = (int32)fps;
 		}
 
 		public void clear(){		m_render.clear ();
@@ -85,15 +82,17 @@ namespace Bg{
 			m_win.destroy();
 			m_is_open = false;
 		}
+
 		public void present(){
-			fps_loop();
+		    if(m_fps_limit != -1)
+			    fps_loop();
 			m_render.present();
 			m_win.update_surface();
 		}
 		public SDL.Video.Renderer *get_render(){
 			return m_render;
 		}
-		private uint32 m_fps_limit = 60;
+		private int32 m_fps_limit = 120;
 		private uint32 time_end;
 		private uint32 time_begin;
 		private bool m_is_open;

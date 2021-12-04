@@ -11,6 +11,9 @@ namespace Bg{
             }
             return false;
         }
+        public void reset(){
+            diff = SDL.Timer.get_ticks();
+        }
         private uint32 every_t;
         private uint32 diff;
     }
