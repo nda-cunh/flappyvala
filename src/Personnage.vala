@@ -19,7 +19,7 @@ class Personnage : Object {
         m_t[0] = new Texture();
         m_t[1] = new Texture();
         m_t[2] = new Texture();
-        a_gravity = new Bg.Animate(55);
+        a_gravity = new Bg.Animate(30);
         a_sprite = new Animate(250);
         m_sprite = new Sprite(m_t[0]);
     }
@@ -39,7 +39,7 @@ class Personnage : Object {
             return;
         if(is_playing == false)
             is_playing = true; 
-        m_vitesse = -5;
+        m_vitesse = -9;
     }
     protected void animate(){
         if(!is_playing == false)
@@ -57,12 +57,13 @@ class Personnage : Object {
     protected void gravity(){
         if(m_sprite.get_position().y >= 510)
                 return;
-        m_sprite.move({0,m_vitesse});
+
         if(a_gravity.animate())
         {
+            m_sprite.move({0,m_vitesse});
             if(m_vitesse != 12)
                 m_vitesse = m_vitesse + 1;
-            m_sprite.set_angle(m_vitesse*9 -20);
+            m_sprite.set_angle(m_vitesse*7 -20);
         }
         
     }

@@ -4,9 +4,6 @@ class Background{
     public Background () {
         this.init_object();
         
-
-        
-        
         for(int i = 0; i != 6; i++){
             m_sprite_building[i].move({m_texture_building.get_W() * i, 420});
         }
@@ -16,6 +13,9 @@ class Background{
         }
     }
     private void init_object(){
+        a_grass = new Animate(15);
+        a_building = new Animate(60);
+        a_tuyau_move = new Animate(10);
         m_texture_grass = new Texture();
         m_texture_background = new Texture();
         m_texture_building = new Texture();
@@ -30,13 +30,10 @@ class Background{
             m_texture_building.set_texture("data/building.bmp");
         }
 
-        print("here\n");
         m_sprite_background = new Sprite(m_texture_background);
-        print("here2\n");
         for(int i = 0; i != 6; i++){
             m_sprite_grass[i] = new Sprite(m_texture_grass);
         }
-        print("here\n");
         for(int i = 0; i != 6; i++){
             m_sprite_building[i] = new Sprite(m_texture_building);
         }
@@ -71,35 +68,42 @@ class Background{
     protected void animate(){
         if(is_dead == true)
             return;
-        for(int i = 0; i != 6; i++){
-            m_sprite_grass[i].move({-2.6,0});
-            if(m_sprite_grass[i].get_position().x < -m_texture_grass.get_W())
-                m_sprite_grass[i].move ({m_texture_grass.get_W() * 5,0});
+        if(a_grass.animate()){
+            for(int i = 0; i != 6; i++){
+                m_sprite_grass[i].move({-3,0});
+                if(m_sprite_grass[i].get_position().x < -m_texture_grass.get_W())
+                    m_sprite_grass[i].move ({m_texture_grass.get_W() * 5,0});
+            }
         }
-        for(int i = 0; i != 6; i++){
-            m_sprite_building[i].move({-0.7,0});
-            if(m_sprite_building[i].get_position().x < -m_texture_building.get_W())
-                m_sprite_building[i].move ({m_texture_building.get_W() * 5,0});
+        if(a_building.animate()){
+            for(int i = 0; i != 6; i++){
+                m_sprite_building[i].move({-01,0});
+                if(m_sprite_building[i].get_position().x < -m_texture_building.get_W())
+                    m_sprite_building[i].move ({m_texture_building.get_W() * 5,0});
+            }
         }
-        for(int i = 0; i != m_tuyau.length; i++)
-            m_tuyau[i].animate();
+        if(a_tuyau_move.animate()){
+            for(int i = 0; i != m_tuyau.length; i++)
+                m_tuyau[i].move();
+        }
     }
     public void add_tuyau(){
-        if(SDL.Timer.get_ticks() >= diff_activate + 2000)
-        {
-            
-            diff_activate = SDL.Timer.get_ticks();
-            m_tuyau[index_activate].activate();
-            index_activate++;
-            if(index_activate == m_tuyau.length)
-                index_activate = 0;
-            print("activate\n");
-        }
-        
+        diff_activate = SDL.Timer.get_ticks();
+        m_tuyau[index_activate].activate();
+        index_activate++;
+        if(index_activate == m_tuyau.length)
+            index_activate = 0;
     }
     public bool is_collision(Sprite perso){
         for(int i = 0; i != m_tuyau.length; i++){
             if(m_tuyau[i].is_collision(perso))
+                return true;
+        }
+        return false;
+    }
+    public bool is_go_on(Sprite perso){
+        for(int i = 0; i != m_tuyau.length; i++){
+            if(m_tuyau[i].is_go_on(perso))
                 return true;
         }
         return false;
@@ -117,6 +121,10 @@ class Background{
     private Sprite m_sprite_building[6];
     private Texture m_texture_building;
     
-    private Tuyau m_tuyau[3];
+    private Animate a_building;
+    private Animate a_grass;
+    private Animate a_tuyau_move;
+
+    private Tuyau m_tuyau[4];
     private bool is_dead = false;
 }

@@ -3,6 +3,7 @@ class Tuyau{
     public Tuyau () {
         m_texture_tuyau = new Texture();
         m_texture_tuyauC = new Texture();
+        a_tuyau_move = new Animate(15);
         
         m_sprite_tuyau1 = new Sprite(m_texture_tuyau);
         m_sprite_tuyau2 = new Sprite(m_texture_tuyau);
@@ -41,6 +42,9 @@ class Tuyau{
         win.draw(m_sprite_chapeau2);
     }
     public void animate(){
+
+    }
+    public void move(){
         if(is_activate == false)
             return;
         if(m_sprite_tuyau1.get_position().x <= -80)
@@ -48,12 +52,13 @@ class Tuyau{
             is_activate = false;
             this.tuyau_init();
         }
-        m_sprite_tuyau1.move({-m_vitesse,0});
+           m_sprite_tuyau1.move({-m_vitesse,0});
         m_sprite_tuyau2.move({-m_vitesse,0});
         m_sprite_chapeau1.move({-m_vitesse,0});
         m_sprite_chapeau2.move({-m_vitesse,0});
     }
     public void activate(){
+        is_okay = false;
         is_activate = true;
     }
     public bool is_collision(Sprite perso){
@@ -71,13 +76,25 @@ class Tuyau{
             return true;
         return false;
     }
+    public bool is_go_on(Sprite perso){
+        if(is_okay == false)
+        {
+            if(perso.get_position().x > m_sprite_tuyau1.get_position().x){
+                is_okay = true;
+                return true;
+            }
+        }
+        return false;
+    }
     private Texture m_texture_tuyau;
     private Texture m_texture_tuyauC;
-    
+    private Animate a_tuyau_move;
+
     private Sprite m_sprite_tuyau1;
     private Sprite m_sprite_tuyau2;
     private Sprite m_sprite_chapeau1;
     private Sprite m_sprite_chapeau2;
     private bool is_activate = false;
+    private bool is_okay = false;
     private double m_vitesse = 2;
 }
