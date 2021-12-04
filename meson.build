@@ -20,7 +20,8 @@ file_vala = [
 	'Scene.vala',
 	'Background.vala',
 	'Personnage.vala',
-	'Tuyau.vala'
+	'Tuyau.vala',
+	'Score.vala'
 ]
 
 
