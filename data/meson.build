@@ -9,7 +9,8 @@ Image_bmp = [
 	'flappy1.bmp',
 	'flappy2.bmp',
 	'flappy3.bmp',
-	'building.bmp'
+	'building.bmp',
+	'font.bmp'
 ]
 install_data(Image_bmp, install_dir : get_option('datadir') / 'flappy')
 
