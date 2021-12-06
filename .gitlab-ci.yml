@@ -20,7 +20,7 @@ build-job:       # This job runs in the build stage, which runs first.
   stage: build
   script:
     - apt-get -qq update
-    - apt-get install -qqy --no-install-recommends meson valac
+    - apt-get install -qqy --no-install-recommends meson valac sdl2
     - meson build --prefix=/usr
     - ninja -C build
     - echo "Compile complete."
