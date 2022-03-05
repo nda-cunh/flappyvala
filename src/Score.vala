@@ -14,14 +14,14 @@ class Score{
         card[8] = {RECTX*2, RECTY};
         card[9] = {RECTX*3, RECTY};
         card[0] = {RECTX*4, RECTY};
-        m_sprite[0].set_position({450-RECTX, 0});
-        m_sprite[0].set_rect({card[0].x, card[0].y,RECTX, RECTY});
+        m_sprite[0].set_Position(450 - RECTX - 20, 20);
+        m_sprite[0].rect = {card[0].x, card[0].y,RECTX, RECTY};
 
-        m_sprite[1].set_position({450-RECTX*2, 0});
-        m_sprite[1].set_rect({card[0].x, card[0].y,RECTX, RECTY});
+        m_sprite[1].set_Position(450 - RECTX * 2 - 20, 20);
+        m_sprite[1].rect = {card[0].x, card[0].y, RECTX, RECTY};
 
-        m_sprite[2].set_position({450-RECTX*3, 0});
-        m_sprite[2].set_rect({card[0].x, card[0].y,RECTX, RECTY});
+        m_sprite[2].set_Position(450 - RECTX * 3 - 20, 20);
+        m_sprite[2].rect = {card[0].x, card[0].y, RECTX, RECTY};
         update();
     }
     public void init_object(){
@@ -34,7 +34,7 @@ class Score{
     public void draw(ref Bg.Window win){
         win.draw(m_sprite[0]);
         win.draw(m_sprite[1]);
-        if(!(m_sprite[2].get_rect().x == RECTX*4))
+        if(!(m_sprite[2].rect.x == RECTX*4))
             win.draw(m_sprite[2]);
     }
     public void add_point(){
@@ -46,7 +46,7 @@ class Score{
         update();
     }
     protected void set_card(int sprite, int ncard){
-        m_sprite[sprite].set_rect({card[ncard].x, card[ncard].y,RECTX, RECTY});
+        m_sprite[sprite].rect = {card[ncard].x, card[ncard].y,RECTX, RECTY};
     }
     protected void update(){
         int score_tmp = m_score;

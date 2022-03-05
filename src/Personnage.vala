@@ -24,10 +24,10 @@ class Personnage : Object {
         m_sprite = new Sprite(m_t[0]);
     }
     public void init(){
-        m_sprite.set_position({150,250});
+        m_sprite.set_Position(150,250);
         is_dead = false;
         is_playing = false;
-        m_sprite.set_angle(0);
+        m_sprite.angle = 0;
     }
     public void draw(ref Window win){
         this.animate();
@@ -55,15 +55,15 @@ class Personnage : Object {
         }
     }
     protected void gravity(){
-        if(m_sprite.get_position().y >= 510)
+        if(m_sprite.position.y >= 510)
                 return;
 
         if(a_gravity.animate())
         {
-            m_sprite.move({0,m_vitesse});
+            m_sprite.move(0,m_vitesse);
             if(m_vitesse != 12)
                 m_vitesse = m_vitesse + 1;
-            m_sprite.set_angle(m_vitesse*7 -20);
+            m_sprite.angle = (m_vitesse*7 -20);
         }
         
     }

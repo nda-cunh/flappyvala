@@ -25,11 +25,11 @@ class Tuyau{
         int y = rand.int_range(220, 480);
         int diff = 145;//rand.int_range(140, 180);
         
-        m_sprite_tuyau1.set_position({500,      y});
-        m_sprite_tuyau2.set_position({500,      y - (500+diff)});
+        m_sprite_tuyau1.position = {500,      y};
+        m_sprite_tuyau2.position = {500,      y - (500+diff)};
         
-        m_sprite_chapeau1.set_position({500-4,  y - 18});
-        m_sprite_chapeau2.set_position({500-4,  y- diff-1});
+        m_sprite_chapeau1.position = {500-4,  y - 18};
+        m_sprite_chapeau2.position = {500-4,  y- diff-1};
     }
     public void init(){
         this.tuyau_init();
@@ -41,28 +41,25 @@ class Tuyau{
         win.draw(m_sprite_chapeau1);
         win.draw(m_sprite_chapeau2);
     }
-    public void animate(){
-
-    }
     public void move(){
         if(is_activate == false)
             return;
-        if(m_sprite_tuyau1.get_position().x <= -80)
+        if(m_sprite_tuyau1.position.x <= -80)
         {
             is_activate = false;
             this.tuyau_init();
         }
-           m_sprite_tuyau1.move({-m_vitesse,0});
-        m_sprite_tuyau2.move({-m_vitesse,0});
-        m_sprite_chapeau1.move({-m_vitesse,0});
-        m_sprite_chapeau2.move({-m_vitesse,0});
+           m_sprite_tuyau1.move((int) (-m_vitesse),0);
+        m_sprite_tuyau2.move((int) (-m_vitesse),0);
+        m_sprite_chapeau1.move((int) (-m_vitesse),0);
+        m_sprite_chapeau2.move((int) (-m_vitesse),0);
     }
     public void activate(){
         is_okay = false;
         is_activate = true;
     }
     public bool is_collision(Sprite perso){
-        if(perso.get_position().y >= 510)
+        if(perso.position.y >= 510)
         {
             return true;
         }
@@ -79,7 +76,7 @@ class Tuyau{
     public bool is_go_on(Sprite perso){
         if(is_okay == false)
         {
-            if(perso.get_position().x > m_sprite_tuyau1.get_position().x){
+            if(perso.position.x > m_sprite_tuyau1.position.x){
                 is_okay = true;
                 return true;
             }

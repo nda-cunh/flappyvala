@@ -3,14 +3,19 @@ using Bg;
 class Background{
     public Background () {
         this.init_object();
+        if(m_texture_building == null)
+            print("AAAAH\n");
+        print(@"la : $(m_texture_building.w)\n");
+        print("hereC\n");
+        for(int i = 0; i != 6; i++){
+            m_sprite_building[i].move(m_texture_building.w * i, 420);
+        }
+        print("Crash\n");
         
         for(int i = 0; i != 6; i++){
-            m_sprite_building[i].move({m_texture_building.get_W() * i, 420});
+            m_sprite_grass[i].move (m_texture_grass.w * i, 650 - m_texture_grass.h);
         }
-        
-        for(int i = 0; i != 6; i++){
-            m_sprite_grass[i].move ({m_texture_grass.get_W() * i, 650 - m_texture_grass.get_H()});
-        }
+        print("hereB");
     }
     private void init_object(){
         a_grass = new Animate(15);
@@ -70,16 +75,16 @@ class Background{
             return;
         if(a_grass.animate()){
             for(int i = 0; i != 6; i++){
-                m_sprite_grass[i].move({-3,0});
-                if(m_sprite_grass[i].get_position().x < -m_texture_grass.get_W())
-                    m_sprite_grass[i].move ({m_texture_grass.get_W() * 5,0});
+                m_sprite_grass[i].move(-3,0);
+                if(m_sprite_grass[i].position.x < -m_texture_grass.w)
+                    m_sprite_grass[i].move (m_texture_grass.w * 5,0);
             }
         }
         if(a_building.animate()){
             for(int i = 0; i != 6; i++){
-                m_sprite_building[i].move({-01,0});
-                if(m_sprite_building[i].get_position().x < -m_texture_building.get_W())
-                    m_sprite_building[i].move ({m_texture_building.get_W() * 5,0});
+                m_sprite_building[i].move(-1,0);
+                if(m_sprite_building[i].position.x < -m_texture_building.w)
+                    m_sprite_building[i].move (m_texture_building.w * 5,0);
             }
         }
         if(a_tuyau_move.animate()){
