@@ -1,5 +1,5 @@
 [wrap-git]
 url = https://gitlab.com/hydrasho/burgersdl
-revision = head
+revision = 2.0
 [provide]
 burger-2.0 = libburger_dep
