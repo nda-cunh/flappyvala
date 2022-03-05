@@ -16,7 +16,6 @@ file_vala = [
 list_vala_dep = [
   dependency('burger-2.0'),
   dependency('sdl2'),
-  dependency('SDL2_gfx'),
   dependency('glib-2.0'),
   dependency('gobject-2.0'),
 ]
