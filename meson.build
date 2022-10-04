@@ -10,7 +10,9 @@ file_vala = [
 	'Background.vala',
 	'Personnage.vala',
 	'Tuyau.vala',
-	'Score.vala'
+	'Score.vala',
+	'sdl2.vapi',
+	'SDL2_image.vapi'
 ]
 
 list_vala_dep = [
