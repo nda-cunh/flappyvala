@@ -26,7 +26,9 @@ class Score{
     }
     public void init_object(){
         m_texture = new Bg.Texture();
-        m_texture.set_texture (IMAGE_DIR + "font.bmp");
+        if(m_texture.set_texture(IMAGE_DIR + "font.bmp")){
+            m_texture.set_texture("data/font.bmp");
+        }
         m_sprite[0] = new Bg.Sprite(m_texture);
         m_sprite[1] = new Bg.Sprite(m_texture);
         m_sprite[2] = new Bg.Sprite(m_texture);
