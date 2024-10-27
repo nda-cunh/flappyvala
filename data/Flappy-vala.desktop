@@ -1,0 +1,23 @@
+[Desktop Entry]
+Version=1.0
+
+
+Name[fr]=Flappy-vala
+Name=Flappy-vala
+
+GenericName[fr]=Flappy-vala
+GenericName=Flappy-vala
+
+Comment[fr]=un flappy-bird en vala
+Comment=un flappy-bird en vala
+
+Keywords[fr]=jeux;flappy;oiseau;
+Keywords=games;flappy;bird;
+
+Type=Application
+Categories=Games;
+MimeType=
+Exec=flappy-vala
+Terminal=false
+StartupNotify=true
+Icon=flappy-icon

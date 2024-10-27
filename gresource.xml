@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+	<gresource prefix="/data/">
+	<file compressed="true">get_ready.bmp</file>
+	<file compressed="true">tap_me.bmp</file>
+	<file compressed="true">back.bmp</file>
+	<file compressed="true">building.bmp</file>
+	<file compressed="true">flappy1.bmp</file>
+	<file compressed="true">flappy2.bmp</file>
+	<file compressed="true">flappy3.bmp</file>
+	<file compressed="true">flappy-icon.png</file>
+	<file compressed="true">Flappy-vala.desktop</file>
+	<file compressed="true">font.bmp</file>
+	<file compressed="true">gameover.bmp</file>
+	<file compressed="true">grass.bmp</file>
+	<file compressed="true">titre.bmp</file>
+	<file compressed="true">tuyau.bmp</file>
+	<file compressed="true">tuyauC.bmp</file>
+  </gresource>
+</gresources>
+
+
