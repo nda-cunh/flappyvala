@@ -12,6 +12,15 @@ public class GameOver {
 		};
 	}
 
+	private Timer timer = new Timer();
+	public void init_cooldown () {
+		timer.reset ();
+	}
+
+	public bool cooldown() {
+		return (timer.elapsed () > 0.5);
+	}
+
 	public void draw (RenderWindow window) {
 		window.draw(sprite);
 	}

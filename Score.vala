@@ -65,7 +65,6 @@ class Score {
 			return _is_game_over;
 		}
 		set {
-			print(@"Score.is_game_over = value");
 			_is_game_over = value;
 			if (_is_game_over) {
 				numberU.x = 270;

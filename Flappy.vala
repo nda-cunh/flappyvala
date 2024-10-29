@@ -17,6 +17,8 @@ public class Flappy {
 		};
 		onDeath.connect (() => {
 			is_dead = true;
+			if (my_speed_gravity < 0)
+				my_speed_gravity = 0.0f;
 		});
 		sprite.origin = {0, texture_flappy[0].height / 2};
 	}
@@ -56,8 +58,6 @@ public class Flappy {
 			}
 			sprite.setRotation(my_rotate);
 		}
-
-
 	}
 
 	private bool is_dead = false;

@@ -36,18 +36,18 @@ private class Tuyau {
 
 	public void collide (Flappy flappy) {
 		unowned var sprite = flappy.sprite;
-		if (sprite.getGlobalBounds ().intersects (tuyau.getGlobalBounds ()))
-			flappy.onDeath();
-		if (sprite.getGlobalBounds ().intersects (tuyau_top.getGlobalBounds ()))
-			flappy.onDeath();
+		var sprite_bound = sprite.getGlobalBounds ();
 
-		if (sprite.getGlobalBounds ().intersects (end.getGlobalBounds ()))
+		if (sprite_bound in tuyau.getGlobalBounds ())
 			flappy.onDeath();
-		if (sprite.getGlobalBounds ().intersects (end_top.getGlobalBounds ()))
+		else if (sprite_bound in tuyau_top.getGlobalBounds ())
 			flappy.onDeath();
-		if (sprite.position.y < 0 || sprite.position.y > 580)
+		else if (sprite_bound in end.getGlobalBounds ())
 			flappy.onDeath();
-		
+		else if (sprite_bound in end_top.getGlobalBounds ())
+			flappy.onDeath();
+		else if (sprite.y < 0)
+			flappy.onDeath();
 	}
 	
 	
@@ -93,7 +93,7 @@ public class Game {
 	private const int TUYAU_COUNT = 3;
 	private Tuyau tuyau[TUYAU_COUNT];
 	public Game () throws Error {
-		for (int i = 0; i < TUYAU_COUNT; i++)
+		for (int i = 0; i < TUYAU_COUNT; ++i)
 		{
 			tuyau[i] = new Tuyau() {
 				x = 800 + i * 300

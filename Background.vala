@@ -7,7 +7,7 @@ public class Star {
 	private Vector2f speed = {0.5f, 0.5f};
 	public Star () {
 		rect = new RectangleShape() {
-			color = sf.Color(255, 255, 255, 120),
+			color = sf.Color(255, 255, 255, 200),
 			outlineColor = sf.Color(255, 255, 255, 80),
 			outlineThickness = 1
 		};
@@ -23,7 +23,7 @@ public class Star {
 			size_value = Random.int_range(20, 40);
 			rect.size = {size_value, size_value};
 		}
-		float speed_value = (float)Random.double_range(0.2, 1.5);
+		float speed_value = (float)Random.double_range(0.1, 0.7);
 		speed = {speed_value, speed_value};
 
 	}

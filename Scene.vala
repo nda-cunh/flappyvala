@@ -46,6 +46,7 @@ public class Scene {
 			background.freeze = true;
 			game.is_dead = true;
 			score.is_game_over = true;
+			gameover.init_cooldown ();
 		});
 		game = new Game();
 		game.onPipe.connect (() => {
@@ -95,10 +96,9 @@ public class Scene {
 						flappy.onJump ();
 					break;
 				case Activity.GameOver:
-					if (event.type == EventType.KeyPressed) {
-						if (event.key.code == sf.KeyCode.Space) {
-							restart ();
-						}
+					if (event.key.code == sf.KeyCode.Space || event.type == EventType.MouseButtonPressed) {
+						if (gameover.cooldown() == true)
+							restart();
 					}
 					break;
 			}
