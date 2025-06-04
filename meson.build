@@ -22,7 +22,7 @@ executable('flappy_vala',
   'Ready.vala',
   'Background.vala',
   asresources,
-  vala_args: '--vapidir=' + meson.current_source_dir() + '/vapi',
+  vala_args: ['--vapidir=' + meson.current_source_dir() + '/vapi', '--disable-assert'],
   c_args: '-w',
   dependencies : [
     dependency('csfml-all'),

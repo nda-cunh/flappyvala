@@ -35,7 +35,7 @@ private class Tuyau {
 	}
 
 	public void collide (Flappy flappy) {
-		unowned var sprite = flappy.sprite;
+		unowned var sprite = flappy.circle;
 		var sprite_bound = sprite.getGlobalBounds ();
 
 		if (sprite_bound in tuyau.getGlobalBounds ())
@@ -46,7 +46,7 @@ private class Tuyau {
 			flappy.onDeath();
 		else if (sprite_bound in end_top.getGlobalBounds ())
 			flappy.onDeath();
-		else if (sprite.y < 0)
+		else if (flappy.sprite.y < 0)
 			flappy.onDeath();
 	}
 	
